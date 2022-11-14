@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/juego.unity
     guid: e4bfc5adfe398fd4b9a82b9f9b27bad9
   - enabled: 1
-    path: Assets/Scenes/Perdiste.unity
-    guid: ac66cdf560b072843a720118e6ef5fff
+    path: Assets/Scenes/Perdio.unity
+    guid: 37c8ec4cef966c54a98643971639ce94
   - enabled: 1
     path: Assets/Scenes/Completado.unity
     guid: 29f6e5b6b7d5fc14cbc61699d60398b6

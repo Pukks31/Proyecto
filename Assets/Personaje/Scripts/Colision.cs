@@ -9,7 +9,7 @@ public class Colision : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("juego");
+            SceneManager.LoadScene("Perdio");
         }
     }
 }
