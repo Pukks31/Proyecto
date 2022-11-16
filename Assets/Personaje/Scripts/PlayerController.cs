@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private CharacterController controller;
+    public CharacterController controller;
     private GameObject camara;
 
     [Header("Estadisticas normales")] 
@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
     float gravedad = -9.81f;
     Vector3 velocity;
     bool tocarPiso;
+
+    public AudioSource pasos;
+    private bool Hactivo;
+    private bool Vactivo;
 
     Animator anim;
 
@@ -84,6 +88,43 @@ public class PlayerController : MonoBehaviour
                 Vector3 mover = Quaternion.Euler(0, objetivoAngluo, 0) * Vector3.forward;
                 controller.Move(mover.normalized * velocidad * Time.deltaTime);
                 anim.SetFloat("movimientos", 0.5f, 0.1f, Time.deltaTime);
+            }
+        }
+
+        if (Input.GetButtonDown("Horizontal"))
+        {
+            if (Vactivo == false)
+            {
+                Hactivo = true;
+                pasos.Play();    
+            }
+        }
+
+        if (Input.GetButtonDown("Vertical"))
+        {
+            if (Hactivo == false)
+            {
+                Vactivo = true;
+                pasos.Play();    
+            }
+        }
+
+        if (Input.GetButtonUp("Horizontal"))
+        {
+            Hactivo = false;
+            
+            if (Vactivo == false)
+            {
+                pasos.Pause();    
+            }
+        }
+        if (Input.GetButtonUp("Vertical"))
+        {
+            Vactivo = false;
+            
+            if (Hactivo == false)
+            {
+                pasos.Pause();    
             }
         }
     }
